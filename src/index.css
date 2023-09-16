@@ -8,10 +8,22 @@
 
 /* Global Styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    scroll-behavior: smooth;
-    color-scheme: light;
-  }
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	scroll-behavior: smooth;
+	color-scheme: light;
+}
+
+th,
+td {
+	padding: 10px;
+	border: 1px solid gainsboro;
+}
+
+.checkbox {
+	height: 20px;
+	width: 20px;
+  
+}
