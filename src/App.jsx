@@ -1,13 +1,15 @@
+import "./App.css";
+import Header from "./components/Header";
 
-import './App.css'
 
 function App() {
- 
 
-  return (
-    <>
-    </>
-  )
+	return (
+		<div className='w-full'>
+			{/* contact table header */}
+			<Header />
+		</div>
+	);
 }
 
-export default App
+export default App;

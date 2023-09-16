@@ -1,3 +1,17 @@
+/* import the poppins font from Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Basic setup for Tailwind CSS Framework*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
