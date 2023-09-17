@@ -11,17 +11,17 @@ const Header = () => {
 					<Searchbar />
 
           {/* Ascending Order */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg" title='Ascending Order'>
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Ascending Order'>
             <AiOutlineSortAscending />
           </div>
 
           {/* Descending Order */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg" title='Descending Order'>
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Descending Order'>
             <AiOutlineSortDescending />
           </div>
 
           {/* Create New Contact */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg" title='Create New Contact'>
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Create New Contact'>
             <AiOutlinePlus />
           </div>
 				</div>

@@ -1,18 +1,14 @@
 import { IoIosContact } from 'react-icons/io';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
-// import { useState } from 'react';
+
 const Contact = (props) => {
-	// const [checked, setChecked] = useState();
-    const {  userName, spoc, number, email, date} = props.contact;
+    const { userName, spoc, number, email, date} = props.contact;
 	const handleChange = props.handleChange;
-    // const handleChecked = () =>{
-    //     setChecked(!checked);
-    // }  
 	return (
-		<tr className={`even:bg-[#F2F0F2] hover:bg-yellow-100  cursor-pointer relative checked:bg-black`}>
+		<tr className={`even:bg-[#F2F0F2] hover:bg-yellow-100 ${props.contact?.isChecked == true ? "bg-green-300 even:bg-green-300 hover:bg-green-300":""}`}>
 			<td>
 				<input
-					className={` checkbox appearance-none rounded-sm border border-primary checked:bg-primary`}
+					className={` checkbox appearance-none rounded-sm border border-primary checked:bg-primary cursor-pointer`}
 					type="checkbox"
 					checked={props.contact?.isChecked || false} 
 					onChange={handleChange}
