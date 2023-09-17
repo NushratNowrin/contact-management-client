@@ -52,7 +52,6 @@ const ContactTable = ({query}) => {
 						</td>
 						<td>Contact Name</td>
 						<td>CTA</td>
-						<td>SPOC</td>
 						<td>Mobile</td>
 						<td>Email</td>
 						<td>Created Date</td>

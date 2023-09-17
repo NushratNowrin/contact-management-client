@@ -1,7 +1,9 @@
 import { RxCross2 } from "react-icons/rx";
+import moment from 'moment';
 import "./AddContact.css"
 
 const AddContact = ({ togglePopup }) => {
+   
     return (
         <div className='bg-white'>
 			<div className='popup2'>
@@ -12,7 +14,7 @@ const AddContact = ({ togglePopup }) => {
 						<RxCross2 className='text-3xl  text-primary hover:text-[#3e5ec1]' />
 					</button>
 					<h1 className=' text-3xl text-center font-bold text-primary'>
-						Edit Contact
+						Add Contact
 					</h1>
 					<form className='card-body my-5'>
 						<div className='form-control'>
@@ -41,6 +43,17 @@ const AddContact = ({ togglePopup }) => {
 								name='email'
 								id='email'
 								placeholder='Email'
+								required
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+							/>
+						</div>
+						<div className='form-control'>
+							<input
+								type='text'
+								name='date'
+								id='date'
+								placeholder='Date'
+                                value={ moment().format('D-M-Y') }
 								required
 								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
 							/>

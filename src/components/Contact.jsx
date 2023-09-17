@@ -9,7 +9,7 @@ const Contact = (props) => {
 	
 	const contact = props.contact;
 	const [, setMyContacts] = useState(contact);
-	const { _id, userName, spoc, number, email, date } = contact;
+	const { _id, userName, number, email, date } = contact;
 	const handleChange = props.handleChange;
 	const handleSingleDelete = (_id) => {
 		Swal.fire({
@@ -71,7 +71,6 @@ const Contact = (props) => {
 			</td>
 
 			<td>CTA</td>
-			<td>{spoc}</td>
 			<td>{number}</td>
 			<td>{email}</td>
 			<td>{date}</td>
