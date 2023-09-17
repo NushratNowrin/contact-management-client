@@ -1,7 +1,7 @@
-import { useState } from "react";
 
-const Searchbar = () => {
-	const [, setQuery] = useState("");
+
+const Searchbar = ({ setQuery}) => {
+	// const [query , setQuery] = useState("");
 	return (
 		<div className='text-secondary'>
 			<form>
@@ -12,7 +12,7 @@ const Searchbar = () => {
 						id='search'
 						placeholder='Search here by name'
 						className='input input-bordered my-3 px-3 py-2 rounded-lg'
-						onChange={(event) => setQuery(event.target.value)}
+						onChange={(event) => setQuery(event.target.value )}
 					/>
 				</div>
 			</form>

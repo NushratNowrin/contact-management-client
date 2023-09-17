@@ -3,17 +3,15 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useState } from "react";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
+import EditContact from "./EditContact/EditContact";
 
 const Contact = (props) => {
+	
 	const contact = props.contact;
-	const [myContacts, setMyContacts] = useState(contact);
+	const [, setMyContacts] = useState(contact);
+	const { _id, userName, spoc, number, email, date } = contact;
+	const handleChange = props.handleChange;
 	const handleSingleDelete = (_id) => {
-		// fetch(`http://localhost:5000/contacts/${_id}`, {
-		// 	method: "DELETE",
-		// })
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
-		// 		if (data.deletedCount > 0) {
 		Swal.fire({
 			title: "Are you sure?",
 			text: "You won't be able to revert this!",
@@ -24,8 +22,12 @@ const Contact = (props) => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/contacts/${_id}`, {
+				fetch(`http://localhost:5000/api/contacts/${_id}`, {
 					method: "DELETE",
+					headers: {
+						"content-type": "application/json",
+					},
+					body: JSON.stringify(contact),
 				})
 					.then((res) => res.json())
 					.then((data) => {
@@ -36,16 +38,16 @@ const Contact = (props) => {
 							);
 							setMyContacts(remaining);
 						}
-						if (result.isCancel) {
-							Swal.fire("Not Deleted");
-							setMyContacts(contact);
-						}
 					});
 			}
 		});
 	};
-	const { _id, userName, spoc, number, email, date } = myContacts;
-	const handleChange = props.handleChange;
+
+	// Show the Edit page with popup
+	const [showPopup, setShowPopup] = useState(false);
+	const togglePopup = () => {
+		setShowPopup(!showPopup);
+	};
 	return (
 		<tr
 			className={`even:bg-[#F2F0F2] hover:bg-yellow-100 ${
@@ -65,7 +67,7 @@ const Contact = (props) => {
 			</td>
 			<td className='text-left align-baseline'>
 				<IoIosContact className='inline text-xl text-primary mr-1' />
-				{userName}
+				<span>{userName}</span>
 			</td>
 
 			<td>CTA</td>
@@ -78,7 +80,13 @@ const Contact = (props) => {
 					onClick={() => handleSingleDelete(_id)}
 					className='text-lg inline mr-2 text-primary cursor-pointer transition-all ease-in-out duration-100 hover:text-red-700'
 				/>
-				<AiFillEdit className='text-lg inline text-primary cursor-pointer transition-all ease-in-out duration-100 hover:text-green-700' />
+				<AiFillEdit
+					onClick={togglePopup}
+					className='text-lg inline text-primary cursor-pointer transition-all ease-in-out duration-100 hover:text-green-700'
+				/>
+				{showPopup && (
+					<EditContact togglePopup={togglePopup} contact={contact}></EditContact>
+				)}
 			</td>
 		</tr>
 	);
