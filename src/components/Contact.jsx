@@ -8,35 +8,41 @@ const Contact = (props) => {
 	const contact = props.contact;
 	const [myContacts, setMyContacts] = useState(contact);
 	const handleSingleDelete = (_id) => {
-		fetch(`http://localhost:5000/contacts/${_id}`, {
-			method: "DELETE",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.deletedCount > 0) {
-					Swal.fire({
-						title: "Are you sure?",
-						text: "You won't be able to revert this!",
-						icon: "warning",
-						showCancelButton: true,
-						confirmButtonColor: "#3085d6",
-						cancelButtonColor: "#d33",
-						confirmButtonText: "Yes, delete it!",
-					}).then((result) => {
-						if (result.isConfirmed) {
+		// fetch(`http://localhost:5000/contacts/${_id}`, {
+		// 	method: "DELETE",
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		if (data.deletedCount > 0) {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/contacts/${_id}`, {
+					method: "DELETE",
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						if (data.deletedCount > 0) {
 							Swal.fire("Deleted!", "Your file has been deleted.", "success");
 							const remaining = contact.filter(
 								(SingleContact) => SingleContact._id !== _id
 							);
 							setMyContacts(remaining);
 						}
-						if(result.isCancel){
+						if (result.isCancel) {
 							Swal.fire("Not Deleted");
-							setMyContacts(contact)
+							setMyContacts(contact);
 						}
 					});
-				}
-			});
+			}
+		});
 	};
 	const { _id, userName, spoc, number, email, date } = myContacts;
 	const handleChange = props.handleChange;

@@ -8,7 +8,7 @@ const ContactTable = () => {
 		fetch("http://localhost:5000/contacts")
 			.then((res) => res.json())
 			.then((data) => setContacts(data));
-	}, []);
+	}, [contacts]);
 	// console.log(contacts)
 	const handleChange = (e) => {
 		const { name, checked } = e.target;
