@@ -6,7 +6,7 @@ const ContactTable = () => {
 	const [contacts, setContacts] = useState([]);
 	// const [checkOn, setCheckOn] = useState([]);
 	useEffect(() => {
-		fetch("/contact.json")
+		fetch("http://localhost:5000/contacts")
 			.then((res) => res.json())
 			.then((data) => setContacts(data));
 	}, []);
