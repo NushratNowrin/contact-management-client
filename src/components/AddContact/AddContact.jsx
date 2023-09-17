@@ -96,7 +96,7 @@ const AddContact = ({togglePopup}) => {
 								className='w-full px-5 py-1 rounded-lg placeholder-gray-400 border-b-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
-						<div className='form-control mt-6'>
+						<div className='form-control mt-6 text-center'>
 							<input type="submit" value="Add" className='px-4 py-2 text-white bg-primary hover:bg-pink-600 rounded-lg' />				
 						</div>
 					</form>
