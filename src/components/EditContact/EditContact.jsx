@@ -61,7 +61,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Contact Name'
                                 defaultValue={userName}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
+								className='w-full px-5 py-1 rounded-lg placeholder-gray-400 border-b-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -72,7 +72,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Contact Number'
                                 defaultValue={number}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
+								className='w-full px-5 py-1 rounded-lg placeholder-gray-400 border-b-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -83,7 +83,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Email'
                                 defaultValue={email}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
+								className='w-full px-5 py-1 rounded-lg placeholder-gray-400 border-b-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control mt-6'>
