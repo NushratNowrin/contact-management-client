@@ -5,7 +5,7 @@ import "sweetalert2/src/sweetalert2.scss";
 
 const EditContact = ({ togglePopup, contact }) => {
     const { _id, userName, number, email } = contact;
-    console.log(_id, userName)
+    // console.log(_id, userName)
 	const handleUpdate = (event) => {
 		event.preventDefault();
 		const form = event.target;
@@ -13,8 +13,6 @@ const EditContact = ({ togglePopup, contact }) => {
 		const updatedNumber = form.phone.value;
 		const updatedEmail = form.mail.value;
 		const updatedContact = { userName:updatedUserName, number:updatedNumber, email:updatedEmail };
-		console.log(updatedContact);
-
 		fetch(
 			`http://localhost:5000/api/contacts/${_id}`,
 			{
@@ -49,7 +47,7 @@ const EditContact = ({ togglePopup, contact }) => {
 					<button
 						onClick={togglePopup}
 						className='w-full flex justify-end items-end mb-10'>
-						<RxCross2 className='text-3xl  text-primary hover:text-[#3e5ec1]' />
+						<RxCross2 className='text-3xl  text-primary hover:text-red-600' />
 					</button>
 					<h1 className=' text-3xl text-center font-bold text-primary'>
 						Edit Contact
@@ -63,7 +61,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Contact Name'
                                 defaultValue={userName}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -74,7 +72,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Contact Number'
                                 defaultValue={number}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -85,7 +83,7 @@ const EditContact = ({ togglePopup, contact }) => {
 								placeholder='Email'
                                 defaultValue={email}
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control mt-6'>

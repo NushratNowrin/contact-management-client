@@ -2,16 +2,15 @@ import { RxCross2 } from "react-icons/rx";
 import moment from 'moment';
 import "./AddContact.css"
 
-const AddContact = ({ togglePopup }) => {
-   
+const AddContact = ({togglePopup}) => {
     return (
         <div className='bg-white'>
-			<div className='popup2'>
-				<div className='popup-content2'>
-					<button
+			<div className='popup-2'>
+				<div className='popup-content2 text-base'>
+                <button
 						onClick={togglePopup}
 						className='w-full flex justify-end items-end mb-10'>
-						<RxCross2 className='text-3xl  text-primary hover:text-[#3e5ec1]' />
+						<RxCross2 className='text-3xl  text-primary hover:text-red-600' />
 					</button>
 					<h1 className=' text-3xl text-center font-bold text-primary'>
 						Add Contact
@@ -24,7 +23,7 @@ const AddContact = ({ togglePopup }) => {
 								id='userName'
 								placeholder='Contact Name'
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -34,7 +33,7 @@ const AddContact = ({ togglePopup }) => {
 								id='number'
 								placeholder='Contact Number'
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -44,7 +43,7 @@ const AddContact = ({ togglePopup }) => {
 								id='email'
 								placeholder='Email'
 								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control'>
@@ -54,8 +53,8 @@ const AddContact = ({ togglePopup }) => {
 								id='date'
 								placeholder='Date'
                                 value={ moment().format('D-M-Y') }
-								required
-								className='w-full px-3 py-1 rounded-xl placeholder-gray-500 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-300'
+								readOnly
+								className='w-full px-3 py-1 rounded-xl placeholder-gray-400 border-2 border-gray-400 text-black mb-3 focus:bg-violet-200 focus:placeholder-gray-400'
 							/>
 						</div>
 						<div className='form-control mt-6'>

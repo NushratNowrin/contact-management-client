@@ -28,8 +28,8 @@ const Header = ({ setQuery}) => {
           </div>
 
           {/* Create New Contact */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Create New Contact' onClick={togglePopup}>
-            <AiOutlinePlus />
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Create New Contact' >
+            <AiOutlinePlus onClick={togglePopup}/>
             {showPopup && (
 					<AddContact togglePopup={togglePopup}></AddContact>
 				)}
