@@ -1,27 +1,28 @@
 import React, { useContext, useRef, useState } from "react";
-import app from '../../Firebase/firebase.config';
-import { HiEye, HiEyeOff } from 'react-icons/hi';
+import app from "../../Firebase/firebase.config";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import "./Login.css";
 import { AuthContext } from "../../Provider/AuthProviders";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import {
+	Link,
 	useLocation,
 	useNavigate,
 	useNavigation,
 } from "react-router-dom";
 const Login = () => {
-    const [loginUser, setLoginUser] = useState(null);
+	const [loginUser, setLoginUser] = useState(null);
 	const [showError, setShowError] = useState("");
 	const [success, setSuccess] = useState("");
 	const emailRef = useRef();
 	const [passwordType, setPasswordType] = useState("password");
 	const [passwordInput, setPasswordInput] = useState("");
-    const navigation = useNavigation();
+	const navigation = useNavigation();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { login, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
-    const from = location.state?.from?.pathname || "/";
+	const from = location.state?.from?.pathname || "/";
 
 	const auth = getAuth(app);
 
@@ -85,10 +86,10 @@ const Login = () => {
 				setShowError(errorMessage);
 			});
 	};
-    return (
-        <div className='w-50 xs:p-10 bg-slate-300 text-center pt-32 pb-10'>
-			<div className='email-pass bg-black md:w-80 m-auto sm:p-16 px-8 py-16 rounded-md mb-10'>
-				<h4 className='text-2xl font-bold mb-6 text-red-400'>Please Login</h4>
+	return (
+		<div className='w-50 xs:p-10 bg-slate-300 text-center p-10 min-h-screen'>
+			<div className='email-pass bg-primary md:w-80 m-auto sm:p-16 px-8 py-16 rounded-md mb-10'>
+				<h4 className='text-2xl font-bold mb-6 text-tertiary'>Please Login</h4>
 				<form onSubmit={getLoginData} className='login "text-white'>
 					<input
 						className='py-1 px-3 w-full rounded my-2'
@@ -127,10 +128,11 @@ const Login = () => {
 						<input
 							type='submit'
 							value='Login'
-							className=' bg-red-400 px-5 py-2 font-bold text-black rounded-lg button-hover'
+							className=' bg-[#d8d5f5] px-5 py-2 font-bold text-primary rounded-lg button-hover'
 						/>
 					</div>
-				</form><br></br>
+				</form>
+				<br></br>
 
 				<p>
 					<small className='text-white font-semibold'>
@@ -144,14 +146,21 @@ const Login = () => {
 			<div className='text-xl font-bold '>Or</div>
 			<div>
 				<button
-					className='px-12 py-4 bg-black rounded-md text-red-400 font-semibold  my-2 button-hover'
+					className='px-12 py-4 bg-primary rounded-md text-tertiary font-semibold  my-2 button-hover'
 					onClick={loginWithGoogle}>
 					Sign in with Google
 				</button>
 				<br></br>
 			</div>
+			<div className='m-5'>
+				New to this site? please{" "}
+				<Link to='../register' className='font-semibold text-red-700'>
+					Register
+				</Link>{" "}
+				First
+			</div>
 		</div>
-    );
+	);
 };
 
 export default Login;
