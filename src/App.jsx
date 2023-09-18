@@ -4,15 +4,16 @@ import Header from "./components/Header";
 
 
 function App() {
+	const [contacts, setContacts] = useState([]);
 	const [query , setQuery] = useState("");
 	return (
 		<div className='w-full'>
 			{/* contact table header */}
-			<Header setQuery={setQuery}/>
+			<Header contacts={contacts} setContacts={setContacts} setQuery={setQuery}/>
 
 			{/* contact table */}
 			<div className="m-2 ">
-			<ContactTable query={query} />
+			<ContactTable contacts={contacts} setContacts={setContacts} query={query} />
 			</div>
 		</div>
 	);

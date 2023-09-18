@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Contact from "./Contact";
 import { AiFillDelete } from 'react-icons/ai';
-const ContactTable = ({query}) => {
-	// Fetch contacts
-	const [contacts, setContacts] = useState([]);
-	useEffect(() => {
-		fetch("http://localhost:5000/api/contacts")
-			.then((res) => res.json())
-			.then((data) => setContacts(data));
-	}, []);
+const ContactTable = ({contacts, setContacts, query}) => {
+	// // Fetch contacts
+	// useEffect(() => {
+	// 	fetch("http://localhost:5000/api/contacts")
+	// 		.then((res) => res.json())
+	// 		.then((data) => setContacts(data));
+	// }, []);
 	// console.log(contacts)
 	const anyChecked = contacts.find((element) => element?.isChecked === true);
 	const handleChange = (e) => {

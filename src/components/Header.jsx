@@ -1,11 +1,44 @@
 import { AiOutlineSortAscending, AiOutlineSortDescending, AiOutlinePlus } from 'react-icons/ai';
 import Searchbar from './Searchbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddContact from './AddContact/AddContact';
+import axiosCustomInstance from '../axios/axiosCustomInstance';
 
-const Header = ({ setQuery}) => {
+const Header = ({ contacts, setContacts, setQuery}) => {
   // Show the Add Contact page with popup
 	const [showPopup, setShowPopup] = useState(false);
+  const [sortBy, setSortBy] = useState(null)
+  
+  useEffect(() => {
+		const fetchData = async () => {
+			let data;
+			if (!sortBy) {
+				data = await axiosCustomInstance.get(
+					`/api/contacts`
+				);
+			} else if (sortBy === 'descending') {
+				data = await axiosCustomInstance.get(
+					`/api/contacts/descending`
+				);
+			} else if (sortBy === 'ascending') {
+				data = await axiosCustomInstance.get(
+					`/api/contacts/ascending`
+				);
+			} 
+			setContacts(data.data);
+		};
+
+		fetchData().catch((err) => alert('error', err.message));
+	}, [sortBy, contacts]);
+
+	const handleFindContact = (e) => {
+		e.preventDefault();
+
+		axiosCustomInstance
+			.get(`/api/contacts/contact?name=${e.target.name.value}`)
+			.then((res) => setContacts([res.data]))
+			.catch((err) => alert('error', err.message));
+	};
 	const togglePopup = () => {
 		setShowPopup(!showPopup);
 	};
@@ -18,12 +51,12 @@ const Header = ({ setQuery}) => {
 					<Searchbar setQuery={setQuery}/>
 
           {/* Ascending Order */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Ascending Order'>
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Ascending Order' onClick={() => setSortBy('ascending')}>
             <AiOutlineSortAscending />
           </div>
 
           {/* Descending Order */}
-          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Descending Order'>
+          <div className="text-2xl text-primary bg-white my-3 px-3 py-2 rounded-lg cursor-pointer" title='Descending Order' onClick={() => setSortBy('descending')}>
             <AiOutlineSortDescending />
           </div>
 
