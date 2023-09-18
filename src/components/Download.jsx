@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFileDownload } from 'react-icons/fa';
 import axiosCustomInstance from '../axios/axiosCustomInstance';
+import { AuthContext } from '../Provider/AuthProviders';
 
 const Download = () => {
-    const handleDownload = ({contacts}) => {
+	const { user } = useContext(AuthContext);
+	console.log(user.email)
+    const handleDownload = () => {
 		axiosCustomInstance({
-			url: `/api/contacts/download?email=${contacts[0]?.email}`,
+			url: `/api/contacts/download?email=${user.email}`,
 			method: 'GET',
 			responseType: 'blob', // Important
 		}).then((response) => {

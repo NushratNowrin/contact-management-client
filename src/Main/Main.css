@@ -1,0 +1,25 @@
+.Main{
+    background-image: url(../assets/Contact.jpg);
+    height: 100vh;
+    background-position: center center;
+
+}
+
+.contact-button{
+	animation: icon 2s ease infinite;
+	
+}
+@keyframes icon {
+	0% {
+		transform: scale(1, 1);
+	}
+	50% {
+		transform: scale(1.1, 1.1);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
+}
+.contact-button:hover{
+	animation-play-state: paused;
+}

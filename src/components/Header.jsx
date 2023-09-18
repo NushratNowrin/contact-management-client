@@ -29,7 +29,7 @@ const Header = ({ contacts, setContacts, setQuery}) => {
 		};
 
 		fetchData().catch((err) => alert('error', err.message));
-	}, [sortBy]);
+	}, [sortBy, contacts]);
 
 	const handleFindContact = (e) => {
 		e.preventDefault();
